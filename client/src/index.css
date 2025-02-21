@@ -1,31 +1,36 @@
-/* Reset some default styles */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
+/* Global styles */
 body {
   font-family: Arial, sans-serif;
-  line-height: 1.6;
-  background-color: #f4f4f4;
-  color: #333;
+  margin: 0;
+  padding: 0;
 }
 
-/* Main container */
+header {
+  background-color: #2a607c;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+footer {
+  background-color: #2a607c;
+  color: white;
+  padding: 10px;
+  text-align: center;
+}
+
+/* Flexbox layout for main content */
 #root {
-  max-width: 1200px;
-  margin: 0 auto;
+  display: flex;
+  flex-direction: column; /* Stack items vertically */
+  align-items: center; /* Center items horizontally */
   padding: 20px;
 }
 
-/* Footer styles */
-footer {
-  background-color: #2a607c;
-  color: #ffffff;
-  text-align: center;
-  padding: 10px 0;
-  position: relative;
-  bottom: 0;
-  width: 100%;
+/* Responsive styles */
+@media (min-width: 768px) {
+  #root {
+    flex-direction: row; /* Change to row layout on larger screens */
+    justify-content: space-around; /* Space items evenly */
+  }
 }
