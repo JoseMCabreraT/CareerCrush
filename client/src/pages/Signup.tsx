@@ -1,12 +1,12 @@
 import { useState, type FormEvent, type ChangeEvent } from 'react';
-
+import {useNavigate} from 'react-router-dom';
 import Auth from '../utils/auth';
 import { signup } from '../api/authAPI';
 import type { Usersignup } from '../interfaces/UserLogin'; 
 
-
 const Signup = () => {
-    const [signupData, setSignupData] = useState<Usersignup>({
+  const navigate = useNavigate();  
+  const [signupData, setSignupData] = useState<Usersignup>({
     username: '',
     email: '',
     password: '',
@@ -17,7 +17,6 @@ const Signup = () => {
         setSignupData({
           ...signupData,
           [name]: value,
-      [name]: value,
         });
       };
 const handleSubmit = async (e: FormEvent) => {
@@ -25,6 +24,7 @@ const handleSubmit = async (e: FormEvent) => {
     try {
       const data = await signup(signupData);
       Auth.login(data.token);
+      navigate ('/');
 
     } catch (err) {
       console.error('Failed to Signup', err);
@@ -45,7 +45,7 @@ return (
             onChange={handleChange}
           />
         </div>
-        <div className='form-group'>
+        <div className='form-group'>-
           <label>Email</label>
           <input
             className='form-input'
