@@ -1,7 +1,7 @@
 import { DataTypes, type Sequelize, Model, type Optional } from 'sequelize';
 
 // Define the attributes of the job model
-interface JobAttributes {
+export interface JobAttributes {
   id: number;
   date: string;
   status: string;
