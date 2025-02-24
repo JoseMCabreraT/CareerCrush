@@ -12,6 +12,11 @@ const Login = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const navigate = useNavigate();
+  const [showPassword, setShowPassword] = useState(false);
+
+const togglePasswordVisibility = () => {
+  setShowPassword((prev) => !prev);
+};
 
   const handleChange = (
     e: ChangeEvent<HTMLInputElement | HTMLSelectElement>
@@ -57,14 +62,31 @@ const Login = () => {
         </div>
         <div className="form-group">
           <label htmlFor="password">Password</label>
-          <input
-            className="form-input"
-            type="password"
-            name="password"
-            id="password"
-            value={loginData.password}
-            onChange={handleChange}
-          />
+          <div style={{ position: 'relative' }}>
+            <input
+              className="form-input"
+              type={showPassword ? "text" : "password"}
+              name="password"
+              id="password"
+              value={loginData.password}
+              onChange={handleChange}
+            />
+            <button
+              type="button"
+              onClick={togglePasswordVisibility}
+              style={{
+                position: 'absolute',
+                right: '10px',
+                top: '50%',
+                transform: 'translateY(-50%)',
+                background: 'none',
+                border: 'none',
+                cursor: 'pointer'
+              }}
+            >
+              {showPassword ? "Hide" : "Show"}
+            </button>
+          </div>
         </div>
         <div className="form-group">
           <button className="btn btn-primary" type="submit" disabled={loading}>
