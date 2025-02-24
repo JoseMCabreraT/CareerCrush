@@ -1,17 +1,17 @@
 body {
-  font-family: Arial, sans-serif; /* Set a clean font for the entire page */
-  background-color: #f4f4f4; /* Light background color */
-  margin: 0; /* Remove default margin */
-  padding: 0; /* Remove default padding */
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
 }
 
 h1 {
-  text-align: center; /* Center the heading */
-  margin-bottom: 20px; /* Space below the heading */
+  text-align: center;
+  margin-bottom: 20px;
 }
 
 /*App.tsx*/
-.containeer.pt-5 {
+.container.pt-5 {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -21,90 +21,146 @@ h1 {
 /*Login.tsx*/
 .form-container {
   display: flex;
-  justify-content: center; /* Center the form horizontally */
-  align-items: center; /* Center the form vertically */
-  height: 100vh; /* Full viewport height */
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
 .form {
-  background-color: white; /* White background for the form */
-  padding: 20px; /* Padding inside the form */
-  border-radius: 8px; /* Rounded corners */
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-  width: 300px; /* Fixed width for the form */
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  width: 300px;
 }
 
 .form-group {
-  margin-bottom: 15px; /* Space between form groups */
+  margin-bottom: 15px;
 }
 
 label {
-  display: block; /* Make the label a block element */
-  margin-bottom: 5px; /* Space below the label */
-  font-weight: bold; /* Bold label text */
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
 }
 
 .form-input {
-  width: 100%; /* Full width input */
-  padding: 10px; /* Padding inside the input */
-  border: 1px solid #ccc; /* Light border */
-  border-radius: 4px; /* Rounded input corners */
-  box-sizing: border-box; /* Include padding and border in element's total width */
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
 }
 
 .form-input:focus {
-  border-color: #007bff; /* Change border color on focus */
-  outline: none; /* Remove default outline */
+  border-color: #007bff;
+  outline: none;
 }
 
 .btn {
-  width: 100%; /* Full width button */
-  padding: 10px; /* Padding inside the button */
-  border: none; /* Remove default border */
-  border-radius: 4px; /* Rounded button corners */
-  cursor: pointer; /* Change cursor to pointer */
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
 }
 
 .btn-primary {
-  background-color: #007bff; /* Primary button color */
-  color: white; /* White text color */
+  background-color: #007bff;
+  color: white;
 }
 
 .btn-primary:hover {
-  background-color: #0056b3; /* Darker blue on hover */
+  background-color: #0056b3;
 }
 
 /* Home.tsx */
 .login-notice {
-  display: flex; /* Use flexbox for centering */
-  justify-content: center; /* Center content horizontally */
-  align-items: center; /* Center content vertically */
-  height: 100vh; /* Full viewport height */
-  background-color: #f4f4f4; /* Light background color */
-  text-align: center; /* Center text */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f4f4f4;
+  text-align: center;
 }
 
 .login-notice h1 {
-  font-size: 2rem; /* Font size for the heading */
-  color: #333; /* Darker text color */
-  margin: 0; /* Remove default margin */
-  padding: 20px; /* Padding around the heading */
-  border: 2px solid #007bff; /* Border around the heading */
-  border-radius: 8px; /* Rounded corners */
-  background-color: white; /* White background for the heading */
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  font-size: 2rem;
+  color: #333;
+  margin: 0;
+  padding: 20px;
+  border: 2px solid #007bff;
+  border-radius: 8px;
+  background-color: white;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
 /*Footer.tsx*/
 .footer {
-  background-color: #333; /* Dark background for the footer */
-  color: white; /* White text color */
-  text-align: center; /* Center text */
-  padding: 10px; /* Padding inside the footer */
-  position: fixed; /* Fixed position at the bottom */
-  bottom: 0; /* Align to the bottom */
-  width: 100%; /* Full width */
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
 }
 .footer p {
-  margin: 0; /* Remove default margin */
+  margin: 0;
+}
+
+/*JobListPage.tsx*/
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.row {
+  display: flex;
+  justify-content: center;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0 auto;
+  background-color: white;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+th,
+td {
+  padding: 10px;
+  border: 1px solid #ccc;
+  text-align: left;
+}
+
+th {
+  background-color: #007bff;
+  color: white;
+}
+
+tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+tr:hover {
+  background-color: #e9ecef;
+}
+
+/*Responsive Design*/
+@media (max-width: 768px) {
+  .form {
+    width: 90%; /* Make the form take up more width on smaller screens */
+  }
+
+  .footer {
+    position: relative; /* Change to relative to avoid overlap on small screens */
+  }
+
+  h1,
+  h2 {
+    font-size: 1.5rem; /* Adjust font size for smaller screens */
+  }
 }
