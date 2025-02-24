@@ -1,79 +1,80 @@
-import { useState, type FormEvent, type ChangeEvent } from 'react';
+import { useState, type FormEvent, type ChangeEvent } from "react";
+import "../index.css";
 
-import Auth from '../utils/auth';
-import { signup } from '../api/authAPI';
-import type { Usersignup } from '../interfaces/UserLogin'; 
-
+import Auth from "../utils/auth";
+import { signup } from "../api/authAPI";
+import type { Usersignup } from "../interfaces/UserLogin";
 
 const Signup = () => {
-    const [signupData, setSignupData] = useState<Usersignup>({
-    username: '',
-    email: '',
-    password: '',
+  const [signupData, setSignupData] = useState<Usersignup>({
+    username: "",
+    email: "",
+    password: "",
   });
- 
-    const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
-        const { name, value } = e.target;
-        setSignupData({
-          ...signupData,
-          [name]: value,
+
+  const handleChange = (
+    e: ChangeEvent<HTMLInputElement | HTMLSelectElement>
+  ) => {
+    const { name, value } = e.target;
+    setSignupData({
+      ...signupData,
       [name]: value,
-        });
-      };
-const handleSubmit = async (e: FormEvent) => {
+      [name]: value,
+    });
+  };
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     try {
       const data = await signup(signupData);
       Auth.login(data.token);
-
     } catch (err) {
-      console.error('Failed to Signup', err);
+      console.error("Failed to Signup", err);
     }
   };
 
-return (
-    <div className='form-container'>
-      <form className='form login-form' onSubmit={handleSubmit}>
+  return (
+    <div className="form-container">
+      <form className="form login-form" onSubmit={handleSubmit}>
         <h1>Signup</h1>
-        <div className='form-group'>
+        <div className="form-group">
           <label>Name</label>
           <input
-            className='form-input'
-            type='text'
-            name='username'
-            value={signupData.username || ''}
+            className="form-input"
+            type="text"
+            name="username"
+            value={signupData.username || ""}
             onChange={handleChange}
           />
         </div>
-        <div className='form-group'>
+        <div className="form-group">
           <label>Email</label>
           <input
-            className='form-input'
-            type='email'
-            name='email'
-            value={signupData.email || ''}
+            className="form-input"
+            type="email"
+            name="email"
+            value={signupData.email || ""}
             onChange={handleChange}
           />
         </div>
-       
-        <div className='form-group'>
+
+        <div className="form-group">
           <label>Password</label>
           <input
-            className='form-input'
-            type='password'
-            name='password'
-            value={signupData.password || ''}
+            className="form-input"
+            type="password"
+            name="password"
+            value={signupData.password || ""}
             onChange={handleChange}
           />
         </div>
-        <div className='form-group'>
-          <button className='btn btn-primary' type='submit' >
+        <div className="form-group">
+          <button className="btn btn-primary" type="submit">
             Signup
           </button>
         </div>
       </form>
     </div>
   );
-}
+};
 
 export default Signup;
