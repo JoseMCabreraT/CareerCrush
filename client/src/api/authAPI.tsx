@@ -1,4 +1,6 @@
 import type { UserLogin, Usersignup } from '../interfaces/UserLogin';
+import axios from 'axios';
+import type { Usersignup } from '../interfaces/UserLogin';
 
 
 const login = async (userInfo: UserLogin) => {
@@ -47,6 +49,11 @@ const signup = async (userInfo: Usersignup) => {
     console.log('Error from user login: ', err);
     return Promise.reject('Could not fetch user info');
   }
+};
+
+export const signup = async (signupData: Usersignup) => {
+  const response = await axios.post('/api/signup', signupData);
+  return response.data.token; // Ensure this returns the JWT token
 };
 
 export { login, signup };

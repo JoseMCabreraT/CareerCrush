@@ -1,6 +1,6 @@
 import { useState, type FormEvent, type ChangeEvent } from "react";
 import { useNavigate } from "react-router-dom";
-//import Auth from '../utils/auth';
+import Auth from '../utils/auth';
 import { signup } from "../api/authAPI";
 import type { Usersignup } from "../interfaces/UserLogin";
 
@@ -29,7 +29,8 @@ const Signup = () => {
     setLoading(true);
     setError("");
     try {
-      await signup(signupData);
+      const idToken = await signup(signupData); 
+      Auth.Signup(idToken); 
       navigate("/");
     } catch (err) {
       setError("Failed to Signup. Please try again.");
