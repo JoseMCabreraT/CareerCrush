@@ -1,6 +1,5 @@
 import { DataTypes, type Sequelize, Model, type Optional } from 'sequelize';
 
-// Define the attributes of the job model
 export interface JobAttributes {
   id: number;
   date: string;
@@ -9,12 +8,13 @@ export interface JobAttributes {
   position: string;
   contact: string;
   description: string;
+  username: string; // Add userName field
 }
 
-interface UserCreationAttributes extends Optional<JobAttributes, 'id'> {}
+interface JobCreationAttributes extends Optional<JobAttributes, 'id'> {}
 
 export class Job
-  extends Model<JobAttributes, UserCreationAttributes>
+  extends Model<JobAttributes, JobCreationAttributes>
   implements JobAttributes
 {
   public id!: number;
@@ -24,6 +24,7 @@ export class Job
   public position!: string;
   public contact!: string;
   public description!: string;
+  public username!: string; // Add username field
 
   public readonly createdAt!: Date;
   public readonly updatedAt!: Date;
@@ -61,6 +62,14 @@ export function JobFactory(sequelize: Sequelize): typeof Job {
       contact: {
         type: DataTypes.STRING,
         allowNull: false,
+      },
+      username: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        references: {
+          model: 'users', // Name of the target model
+          key: 'username', // Key in the target model
+        },
       },
     },
     {
