@@ -1,5 +1,4 @@
 import type { UserLogin, Usersignup } from '../interfaces/UserLogin';
-import axios from 'axios';
 import type { Usersignup } from '../interfaces/UserLogin';
 
 
