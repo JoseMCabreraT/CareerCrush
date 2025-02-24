@@ -36,6 +36,7 @@ router.get('/:id', async (req: Request, res: Response) => {
 // POST /jobs - Create a new user
 router.post('/', async (req: Request, res: Response) => {
   const { date, status, company, position, contact, description } = req.body;
+  console.log(req.body);
   try {
     const newJob = await Job.create({ date, status, company, position, contact, description });
     res.status(201).json(newJob);

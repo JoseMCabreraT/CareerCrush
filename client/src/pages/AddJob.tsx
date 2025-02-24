@@ -24,9 +24,10 @@ const AddJob: React.FC = () => {
           const handleSubmit = async (e) => {
             e.preventDefault();
             try {
-              const response = await fetch('http://localhost:5000/api/jobs', {
+              const response = await fetch('/api/jobs', {
                 method: 'POST',
                 headers: {
+                  Authorization: `Bearer ${Auth.getToken()}`,
                   'Content-Type': 'application/json',
                 },
                 body: JSON.stringify(job),
