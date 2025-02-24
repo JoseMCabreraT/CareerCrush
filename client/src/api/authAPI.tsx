@@ -51,10 +51,7 @@ const signup = async (userInfo: Usersignup) => {
   }
 };
 
-export const signup = async (signupData: Usersignup) => {
-  const response = await axios.post('/api/signup', signupData);
-  return response.data.token; // Ensure this returns the JWT token
-};
+
 
 export { login, signup };
 
