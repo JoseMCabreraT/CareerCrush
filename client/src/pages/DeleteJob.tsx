@@ -30,7 +30,7 @@ const DeleteJob: React.FC = () => {
     // Delete a job from the database
     const handleDelete = async (jobId: number) => {
         try {
-            const response = await fetch(`/delete-job/${jobId}`, {
+            const response = await fetch(`/api/jobs/${jobId}`, {
                 method: 'DELETE',
                 headers: {
                     Authorization: `Bearer ${Auth.getToken()}`,
