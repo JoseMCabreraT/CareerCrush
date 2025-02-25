@@ -2,6 +2,7 @@ import React from 'react';
 import type { JobAttributes } from "../../../server/src/models/jobs";
 import '../index.css'; // Import the CSS file
 //import {login }from './../api/authAPI';
+import { Link } from 'react-router-dom';
 
 interface JobListProps {
     jobs: JobAttributes[] | null;
@@ -16,11 +17,13 @@ const JobList: React.FC<JobListProps> = ({ jobs }) => {
     
     
     return (
-        <div className="container">
-            <h2 className="heading">
-                Job Applications:
+        <>
+            <h2 className="pb-5">
+              Job Listings:
             </h2>
-            <div className="table-container">
+            <Link to='/add-job' className="job-button">Add New Job</Link>
+            <Link to='/delete-job' className="job-button">Delete Job</Link>
+                <div className="table-container" >
                 <table className="table">
                     <thead>
                         <tr>
@@ -46,7 +49,7 @@ const JobList: React.FC<JobListProps> = ({ jobs }) => {
                     </tbody>
                 </table>
             </div>
-        </div>
+        </>
     );
 };
 

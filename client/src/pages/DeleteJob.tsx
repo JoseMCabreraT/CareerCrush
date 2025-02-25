@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import type { JobAttributes } from "../../../server/src/models/jobs";
 import auth from '../utils/auth';
