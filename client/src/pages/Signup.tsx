@@ -13,6 +13,7 @@ const Signup = () => {
   });
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+  const [successMessage, setSuccessMessage] = useState(""); // State for success message
   const [showPassword, setShowPassword] = useState(false);
 
   const togglePasswordVisibility = () => {
@@ -33,9 +34,12 @@ const Signup = () => {
     e.preventDefault();
     setLoading(true);
     setError("");
+    setSuccessMessage("");
     try {
       const idToken = await signup(signupData);
-      Auth.Signup(idToken);
+      console.log("idToken", idToken);
+      Auth.Signup(idToken.token);
+      setSuccessMessage("Signup successful! Welcome!");
       navigate("/");
     } catch (err) {
       setError("Failed to Signup. Please try again.");
@@ -50,6 +54,19 @@ const Signup = () => {
       <form className="form login-form" onSubmit={handleSubmit}>
         <h1>Signup</h1>
         {error && <p className="error">{error}</p>}
+        {successMessage && (
+          <>
+            <p className="success">{successMessage}</p>{" "}
+            {/* Display success message */}
+            <input
+              type="text"
+              value={successMessage}
+              readOnly
+              className="form-input success-confirmation"
+              style={{ marginTop: "10px" }}
+            />
+          </>
+        )}
         <div className="form-group">
           <label htmlFor="username">Name</label>
           <input
