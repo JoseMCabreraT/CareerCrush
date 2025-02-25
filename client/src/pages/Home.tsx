@@ -7,6 +7,7 @@ import auth from '../utils/auth';
 import JobListPage from '../pages/JobListPage';
 import { JobAttributes } from "../../../server/src/models/jobs";
 import { retrieveJobs } from "../api/jobAPI";
+import '../styles/Home.css';
 
 const Home = () => {
 
@@ -64,7 +65,7 @@ const Home = () => {
                 !loginCheck ? (
                     <div className='login-notice'>
                         <h1>
-                            Your next awesome job awaits!
+                            Your next dream job awaits!
                         </h1>
                     </div>
                 ) : (

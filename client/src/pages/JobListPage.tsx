@@ -3,7 +3,6 @@ import type { JobAttributes } from "../../../server/src/models/jobs";
 import '../index.css'; // Import the CSS file
 //import {login }from './../api/authAPI';
 import { Link } from 'react-router-dom';
-
 interface JobListProps {
     jobs: JobAttributes[] | null;
 }
@@ -21,8 +20,10 @@ const JobList: React.FC<JobListProps> = ({ jobs }) => {
             <h2 className="pb-5">
               Job Listings:
             </h2>
-            <Link to='/add-job' className="job-button">Add New Job</Link>
-            <Link to='/delete-job' className="job-button">Delete Job</Link>
+                <Link to='/add-job'>Add New Job</Link>
+                <Link to='/delete-job' className="job-button">Delete Job</Link>
+                <div className="table-container" >
+                    
                 <div className="table-container" >
                 <table className="table">
                     <thead>
@@ -48,6 +49,7 @@ const JobList: React.FC<JobListProps> = ({ jobs }) => {
                         ))}
                     </tbody>
                 </table>
+            </div>
             </div>
         </>
     );
