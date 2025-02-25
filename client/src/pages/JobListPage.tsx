@@ -1,6 +1,7 @@
 import React from 'react';
 import type { JobAttributes } from "../../../server/src/models/jobs";
 import { Link } from 'react-router-dom';
+
 import '../index.css'; // Import the CSS file
 //import {login }from './../api/authAPI';
 
@@ -15,8 +16,8 @@ const JobList: React.FC<JobListProps> = ({ jobs }) => {
               Job Listings:
             </h2>
                 <Link to='/add-job'>Add New Job</Link>
-                <div className="row align-center mb-5" >
-                    <table>
+                <div className="table-container" >
+                    <table className="table">
                         <thead>
                         <tr>
                             <th>Date</th>
