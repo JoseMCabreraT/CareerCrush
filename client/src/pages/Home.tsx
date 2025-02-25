@@ -8,6 +8,7 @@ import auth from "../utils/auth";
 import JobListPage from "../pages/JobListPage";
 import { JobAttributes } from "../../../server/src/models/jobs";
 import { retrieveJobs } from "../api/jobAPI";
+import "../styles/Home.css";
 
 const Home = () => {
   //const [users, setUsers] = useState<UserData[]>([]);
@@ -51,15 +52,15 @@ const Home = () => {
     }
   }; //fetchJobs
 
-  if (error) {
-    return <ErrorPage />;
-  }
+  //if (error) {
+  //  return <ErrorPage />;
+  //}
 
   return (
     <>
       {!loginCheck ? (
         <div className="login-notice">
-          <h1>Your next awesome job awaits!</h1>
+          <h1>Your next dream job awaits!</h1>
         </div>
       ) : (
         <JobListPage jobs={jobs} />

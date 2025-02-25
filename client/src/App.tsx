@@ -1,6 +1,7 @@
 import { Outlet } from "react-router-dom";
+
 import Navbar from "./components/Navbar";
-import "./index.css";
+import Footer from "./pages/Footer";
 
 function App() {
   return (
@@ -9,6 +10,8 @@ function App() {
       <main className="container pt-5">
         <Outlet />
       </main>
+
+      <Footer />
     </div>
   );
 }

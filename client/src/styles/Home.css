@@ -1,0 +1,20 @@
+body {
+    background: linear-gradient( #ff7e5f, #feb47b);
+    height: 100vh;
+    margin: 0;
+    
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, sans-serif;
+    color: rgb(10, 9, 9);
+    text-align: center;
+}
+
+h1 {
+    font-size: 4em;
+    margin: 0;
+}
+
+p {
+    font-size: 1.5em;
+}
