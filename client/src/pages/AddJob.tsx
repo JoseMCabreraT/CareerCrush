@@ -1,6 +1,5 @@
 import React from 'react';
-import '../styles/AddJob.css'; //// Here we are importing a CSS file as a dependency.
-import type { JobAttributes } from '../../../server/src/models/jobs';
+import '../styles/AddJob.css'; 
 import Auth from '../utils/auth';
 import { useState } from 'react';
 
@@ -17,13 +16,13 @@ const AddJob: React.FC = () => {
             description: '',
         });
 
-        const handleChange = (e) => {
+        const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
             setJob({ ...job, [e.target.name]: e.target.value });
           };
 
           
 
-          const handleSubmit = async (e) => {
+          const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
             const username = Auth.getProfile()?.username;
           const jobdata = { ...job, username };
             e.preventDefault();

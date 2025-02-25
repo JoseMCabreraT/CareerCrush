@@ -1,16 +1,14 @@
 
 import React, { useState, useEffect } from 'react';
 import type { JobAttributes } from "../../../server/src/models/jobs";
-import auth from '../utils/auth';
-import { Link } from 'react-router-dom';
 import { retrieveJobs } from '../api/jobAPI';
 import Auth from '../utils/auth';
 
 
 const DeleteJob: React.FC = () => {
 
-    const [error, setError] = useState(false);
-    const [loginCheck, setLoginCheck] = useState(false);
+    // const [error, setError] = useState(false);
+    //const [loginCheck, setLoginCheck] = useState(false);
     const [jobs, setJobs] = useState<JobAttributes[] | null>(null);
 
     const fetchJobs = async () => {
@@ -19,7 +17,7 @@ const DeleteJob: React.FC = () => {
             setJobs(data)
         } catch (err) {
             console.error('Failed to retrieve jobs', err);
-            setError(true);
+            // setError(true);
         }
     
     }//fetchJobs
