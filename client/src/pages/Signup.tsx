@@ -1,6 +1,6 @@
 import { useState, type FormEvent, type ChangeEvent } from "react";
 import { useNavigate } from "react-router-dom";
-import Auth from '../utils/auth';
+import Auth from "../utils/auth";
 import { signup } from "../api/authAPI";
 import type { Usersignup } from "../interfaces/UserLogin";
 
@@ -34,12 +34,12 @@ const Signup = () => {
     e.preventDefault();
     setLoading(true);
     setError("");
-    setSuccessMessage(""); 
+    setSuccessMessage("");
     try {
-      const idToken = await signup(signupData); 
-      console.log('idToken', idToken)
-      Auth.Signup(idToken.token); 
-      setSuccessMessage("Signup successful! Welcome!"); 
+      const idToken = await signup(signupData);
+      console.log("idToken", idToken);
+      Auth.Signup(idToken.token);
+      setSuccessMessage("Signup successful! Welcome!");
       navigate("/");
     } catch (err) {
       setError("Failed to Signup. Please try again.");
@@ -56,13 +56,14 @@ const Signup = () => {
         {error && <p className="error">{error}</p>}
         {successMessage && (
           <>
-            <p className="success">{successMessage}</p> {/* Display success message */}
+            <p className="success">{successMessage}</p>{" "}
+            {/* Display success message */}
             <input
               type="text"
               value={successMessage}
               readOnly
               className="form-input success-confirmation"
-              style={{ marginTop: '10px' }} 
+              style={{ marginTop: "10px" }}
             />
           </>
         )}
@@ -90,7 +91,7 @@ const Signup = () => {
         </div>
         <div className="form-group">
           <label htmlFor="password">Password</label>
-          <div style={{ position: 'relative' }}>
+          <div style={{ position: "relative" }}>
             <input
               className="form-input"
               type={showPassword ? "text" : "password"}
@@ -103,13 +104,13 @@ const Signup = () => {
               type="button"
               onClick={togglePasswordVisibility}
               style={{
-                position: 'absolute',
-                right: '10px',
-                top: '50%',
-                transform: 'translateY(-50%)',
-                background: 'none',
-                border: 'none',
-                cursor: 'pointer'
+                position: "absolute",
+                right: "10px",
+                top: "50%",
+                transform: "translateY(-50%)",
+                background: "none",
+                border: "none",
+                cursor: "pointer",
               }}
             >
               {showPassword ? "Hide" : "Show"}
@@ -127,4 +128,3 @@ const Signup = () => {
 };
 
 export default Signup;
-

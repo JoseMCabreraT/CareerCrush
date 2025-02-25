@@ -14,9 +14,9 @@ const Login = () => {
   const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
 
-const togglePasswordVisibility = () => {
-  setShowPassword((prev) => !prev);
-};
+  const togglePasswordVisibility = () => {
+    setShowPassword((prev) => !prev);
+  };
 
   const handleChange = (
     e: ChangeEvent<HTMLInputElement | HTMLSelectElement>
@@ -62,7 +62,7 @@ const togglePasswordVisibility = () => {
         </div>
         <div className="form-group">
           <label htmlFor="password">Password</label>
-          <div style={{ position: 'relative' }}>
+          <div style={{ position: "relative" }}>
             <input
               className="form-input"
               type={showPassword ? "text" : "password"}
@@ -75,13 +75,13 @@ const togglePasswordVisibility = () => {
               type="button"
               onClick={togglePasswordVisibility}
               style={{
-                position: 'absolute',
-                right: '10px',
-                top: '50%',
-                transform: 'translateY(-50%)',
-                background: 'none',
-                border: 'none',
-                cursor: 'pointer'
+                position: "absolute",
+                right: "10px",
+                top: "50%",
+                transform: "translateY(-50%)",
+                background: "none",
+                border: "none",
+                cursor: "pointer",
               }}
             >
               {showPassword ? "Hide" : "Show"}
