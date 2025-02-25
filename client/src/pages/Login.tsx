@@ -56,7 +56,7 @@ const togglePasswordVisibility = () => {
             type="text"
             name="username"
             id="username"
-            value={loginData.username}
+            value={loginData.username ?? ""}
             onChange={handleChange}
           />
         </div>
@@ -68,7 +68,7 @@ const togglePasswordVisibility = () => {
               type={showPassword ? "text" : "password"}
               name="password"
               id="password"
-              value={loginData.password}
+              value={loginData.password ?? ""}
               onChange={handleChange}
             />
             <button

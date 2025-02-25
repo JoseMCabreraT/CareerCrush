@@ -73,7 +73,7 @@ const Signup = () => {
             type="text"
             name="username"
             id="username"
-            value={signupData.username}
+            value={signupData.username ?? ""}
             onChange={handleChange}
           />
         </div>
@@ -84,7 +84,7 @@ const Signup = () => {
             type="email"
             name="email"
             id="email"
-            value={signupData.email}
+            value={signupData.email ?? ""}
             onChange={handleChange}
           />
         </div>
@@ -96,7 +96,7 @@ const Signup = () => {
               type={showPassword ? "text" : "password"}
               name="password"
               id="password"
-              value={signupData.password}
+              value={signupData.password ?? ""}
               onChange={handleChange}
             />
             <button
