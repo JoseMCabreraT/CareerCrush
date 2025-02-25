@@ -9,8 +9,10 @@ const Job = JobFactory(sequelize);
 User.hasMany(Job, { foreignKey: 'username' });
 Job.belongsTo(User, { foreignKey: 'username' });
 
-// sequelize.sync({ force: true }).then(() => {
-//     console.log('Database & tables created!');
-//   });
+sequelize.sync({ force: true }).then((
+    
+) => {
+    console.log('Database & tables created!');
+  });
 
 export { User, Job };
