@@ -54,9 +54,9 @@ const Home = () => {
 
 
 
-    if (error) {
-        return <ErrorPage />;
-    }
+    //if (error) {
+      //  return <ErrorPage />;
+    //}
 
     return (
         <>
