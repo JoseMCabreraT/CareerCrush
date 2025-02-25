@@ -21,15 +21,20 @@ const AddJob: React.FC = () => {
             setJob({ ...job, [e.target.name]: e.target.value });
           };
 
+          
+
           const handleSubmit = async (e) => {
+            const username = Auth.getProfile()?.username;
+          const jobdata = { ...job, username };
             e.preventDefault();
             try {
-              const response = await fetch('http://localhost:5000/api/jobs', {
+              const response = await fetch('/api/jobs', {
                 method: 'POST',
                 headers: {
+                  Authorization: `Bearer ${Auth.getToken()}`,
                   'Content-Type': 'application/json',
                 },
-                body: JSON.stringify(job),
+                body: JSON.stringify(jobdata),
               });
         
               const data = await response.json();

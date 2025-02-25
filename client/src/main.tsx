@@ -10,6 +10,7 @@ import Login from "./pages/Login.tsx";
 import Signup from "./pages/Signup.tsx";
 //import Footer from './pages/Footer.tsx';
 import AddJob from "./pages/AddJob.tsx";
+import DeleteJob from "./pages/DeleteJob.tsx";
 
 const router = createBrowserRouter([
   {
@@ -35,6 +36,10 @@ const router = createBrowserRouter([
         path: "/add-job",
 
         element: <AddJob />,
+      },
+      {
+        path: '/delete-job',
+        element: <DeleteJob />,
       },
     ],
   },

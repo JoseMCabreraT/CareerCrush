@@ -5,18 +5,28 @@ import '../index.css'; // Import the CSS file
 import { Link } from 'react-router-dom';
 interface JobListProps {
     jobs: JobAttributes[] | null;
-}//interface
+}
 
 const JobList: React.FC<JobListProps> = ({ jobs }) => {
+    const formatDate = (dateString: string) => {
+        const options: Intl.DateTimeFormatOptions = { year: 'numeric', month: '2-digit', day: '2-digit' };
+        return new Date(dateString).toLocaleDateString('en-US', options);
+    };
+    //add check to see who is logged in
+    
+    
     return (
         <>
             <h2 className="pb-5">
               Job Listings:
             </h2>
                 <Link to='/add-job'>Add New Job</Link>
+                <Link to='/delete-job' className="job-button">Delete Job</Link>
                 <div className="table-container" >
-                    <table className="table">
-                        <thead>
+                    
+                <div className="table-container" >
+                <table className="table">
+                    <thead>
                         <tr>
                             <th>Date</th>
                             <th>Status</th>
@@ -25,26 +35,24 @@ const JobList: React.FC<JobListProps> = ({ jobs }) => {
                             <th>Contact</th>
                             <th>Description</th>
                         </tr>
-                        </thead>
-                        <tbody>
+                    </thead>
+                    <tbody>
                         {jobs && jobs.map((job) => (
                             <tr key={job.id}>
-                        
-                            <td>{job.date}</td>
-                            <td>{job.status}</td>
-                            <td>{job.company}</td>
-                            <td>{job.position}</td>
-                            <td>{job.contact}</td>
-                            <td>{job.description}</td>
-                        </tr>
+                                <td>{formatDate(job.date)}</td>
+                                <td>{job.status}</td>
+                                <td>{job.company}</td>
+                                <td>{job.position}</td>
+                                <td>{job.contact}</td>
+                                <td>{job.description}</td>
+                            </tr>
                         ))}
-                        </tbody>
-                    </table>
-                    
-                </div>
-            
+                    </tbody>
+                </table>
+            </div>
+            </div>
         </>
-    );//return
+    );
 };
 
 export default JobList;

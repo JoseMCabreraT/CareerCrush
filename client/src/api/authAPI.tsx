@@ -1,4 +1,5 @@
 import type { UserLogin, Usersignup } from '../interfaces/UserLogin';
+import type { Usersignup } from '../interfaces/UserLogin';
 
 
 const login = async (userInfo: UserLogin) => {
@@ -48,6 +49,8 @@ const signup = async (userInfo: Usersignup) => {
     return Promise.reject('Could not fetch user info');
   }
 };
+
+
 
 export { login, signup };
 

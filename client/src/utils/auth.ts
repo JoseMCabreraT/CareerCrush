@@ -41,6 +41,11 @@ class AuthService {
     localStorage.setItem('id_token', idToken);
     window.location.assign('/');
   }
+  
+  Signup(idToken: string) {
+    localStorage.setItem('id_token', idToken);
+    window.location.assign('/');
+  }
 
   logout() {
     localStorage.removeItem('id_token');
