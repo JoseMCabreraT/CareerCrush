@@ -1,7 +1,8 @@
 import React from 'react';
 import type { JobAttributes } from "../../../server/src/models/jobs";
-import auth from '../utils/auth';
 import { Link } from 'react-router-dom';
+import '../index.css'; // Import the CSS file
+//import {login }from './../api/authAPI';
 
 interface JobListProps {
     jobs: JobAttributes[] | null;
