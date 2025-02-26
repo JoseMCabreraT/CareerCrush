@@ -2,15 +2,17 @@
 import React, { useState, useEffect } from 'react';
 import type { JobAttributes } from "../../../server/src/models/jobs";
 import { retrieveJobs } from '../api/jobAPI';
+import '../index.css'; 
 import Auth from '../utils/auth';
 
 
 const DeleteJob: React.FC = () => {
 
-    // const [error, setError] = useState(false);
-    //const [loginCheck, setLoginCheck] = useState(false);
     const [jobs, setJobs] = useState<JobAttributes[] | null>(null);
-
+    const formatDate = (dateString: string) => {
+        const options: Intl.DateTimeFormatOptions = { year: 'numeric', month: '2-digit', day: '2-digit' };
+        return new Date(dateString).toLocaleDateString('en-US', options);
+    };
     const fetchJobs = async () => {
         try {
             const data = await retrieveJobs();
@@ -52,10 +54,10 @@ const DeleteJob: React.FC = () => {
     return (
         <>
             <h2 className="pb-5">
-              Delete Job Listings
+              Delete Application
             </h2>
-                <div className="row align-center mb-5" >
-                    <table>
+                <div className="table-container" >
+                    <table className="table">
                         <thead>
                         <tr>
                             <th>Date</th>
@@ -72,14 +74,14 @@ const DeleteJob: React.FC = () => {
                         {jobs && jobs.map((job) => (
                             <tr key={job.id}>
                         
-                            <td>{job.date}</td>
+                            <td>{formatDate(job.date)}</td>
                             <td>{job.status}</td>
                             <td>{job.company}</td>
                             <td>{job.position}</td>
                             <td>{job.contact}</td>
                             <td>{job.description}</td>
-                            <td><button onClick={() => handleDelete(job.id)}>Delete</button></td>
-                            <td><button>Update</button></td>
+                            <td><button className="btn"onClick={() => handleDelete(job.id)}>Delete</button></td>
+                            <td><button className="btn">Update</button></td>
                         </tr>
                         ))}
                         </tbody>

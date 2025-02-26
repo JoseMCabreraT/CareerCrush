@@ -973,18 +973,17 @@ a:hover {
 }
 
 .btn {
+  background-color: #eaf1ea; /* Green */
+  border: none;
+  color: rgb(207, 203, 203);
+  padding: 15px 32px;
   text-align: center;
-  display: inline-block;
-  padding: 0.5rem 1.2rem;
-  margin: 0;
   text-decoration: none;
-  font-size: 1rem;
-  border-radius: 0.3rem;
-  border: 1px solid transparent;
-  outline: none;
-  color: #1a1a1a;
-  background-color: #aeaeae;
-  transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  transition-duration: 0.4s;
 }
 
 .btn:hover {
@@ -1011,10 +1010,10 @@ a:hover {
   text-align: center;
 }
 
-.btn.btn-primary {
+/* .btn.btn-primary {
   background-color: #2d3e50;
   color: #d9e9e8;
-}
+} */
 
 .btn.btn-primary:hover {
   background-color: #57779a;
@@ -1562,6 +1561,20 @@ form [type='radio'] {
 
 .table tbody tr:hover {
   background-color: #f1f5f9;
+}
+.job-link {
+  padding: 8px 16px;
+  background-color: #007bff;
+  color: white;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+.link-container {
+  display: flex;
+  justify-content: center;
+  gap: 16px; /* Add spacing between links */
+  margin-bottom: 20px;
 }
 /* col-lg */
 @media screen and (min-width: 992px) {

@@ -2,9 +2,11 @@ import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import auth from '../utils/auth';
 import '../styles/Buttons.css';
+import { useNavigate } from 'react-router-dom';
 
 const Navbar = () => {
   const [loginCheck, setLoginCheck] = useState(false);
+  const navigate = useNavigate();
 
   const checkLogin = () => {
     if (auth.loggedIn()) {
@@ -31,15 +33,15 @@ const Navbar = () => {
           </button>
           </>
         ) : (
-          <button
-            className='btn'
-            type='button'
-            onClick={() => {
-              auth.logout();
-            }}
-          >
-            Logout
-          </button>
+          <><button className="btn" type="button" onClick={() => navigate('/')}>Home</button><button
+              className='btn'
+              type='button'
+              onClick={() => {
+                auth.logout();
+              } }
+            >
+              Logout
+            </button></>
         )}
       </div>
     </div>
