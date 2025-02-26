@@ -6,8 +6,8 @@ const User = UserFactory(sequelize);
 const Job = JobFactory(sequelize);
 
 // Define associations
-//User.hasMany(Job, { foreignKey: 'username' });
-//Job.belongsTo(User, { foreignKey: 'username' });
+User.hasMany(Job, { foreignKey: 'username' });
+Job.belongsTo(User, { foreignKey: 'username' });
 
 // // Synchronize the User model first, then the Job model
 // // sequelize.sync({ force: true }).then(async () => {
