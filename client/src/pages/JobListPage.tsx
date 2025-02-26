@@ -1,7 +1,6 @@
 import React from 'react';
 import type { JobAttributes } from "../../../server/src/models/jobs";
 import '../index.css'; // Import the CSS file
-//import {login }from './../api/authAPI';
 import { Link } from 'react-router-dom';
 interface JobListProps {
     jobs: JobAttributes[] | null;
@@ -12,16 +11,17 @@ const JobList: React.FC<JobListProps> = ({ jobs }) => {
         const options: Intl.DateTimeFormatOptions = { year: 'numeric', month: '2-digit', day: '2-digit' };
         return new Date(dateString).toLocaleDateString('en-US', options);
     };
-    //add check to see who is logged in
     
     
     return (
         <>
             <h2 className="pb-5">
-              Job Listings:
+              Job Applications:
             </h2>
-                <Link to='/add-job'>Add New Job</Link>
-                <Link to='/delete-job' className="job-button">Delete Job</Link>
+                <div  className='link-container'>
+                <Link to='/add-job' className="btn">Add New Job Application</Link>
+                <Link to='/delete-job' className="btn">Delete Job Application</Link>
+                </div>
                 <div className="table-container" >
                     
                 <div className="table-container" >
