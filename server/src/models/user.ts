@@ -52,7 +52,7 @@ export function UserFactory(sequelize: Sequelize): typeof User {
       },
     },
     {
-      tableName: 'users',
+      tableName: 'users_table',
       sequelize,
       hooks: {
         beforeCreate: async (user: User) => {
