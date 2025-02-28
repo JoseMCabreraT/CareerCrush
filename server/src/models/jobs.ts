@@ -67,7 +67,7 @@ export function JobFactory(sequelize: Sequelize): typeof Job {
         type: DataTypes.STRING,
         allowNull: false,
         references: {
-          model: 'users', // Name of the target model
+          model: 'users_table', // Name of the target model
           key: 'username', // Key in the target model
         },
       },
